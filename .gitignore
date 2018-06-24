@@ -1,0 +1,5 @@
+eagleowl.db
+eagleowl_stat.db
+.live/
+my_env.sh
+__pycache__

@@ -1,3 +1,5 @@
+My [InfluxDB](https://github.com/influxdata/influxdb) based home monitoring stuff. See [blog post](http://parasec.net/blog/influxdb-weather/)
+
 ## Dependencies
 
 * [eagle-owl](https://github.com/cornetp/eagle-owl)

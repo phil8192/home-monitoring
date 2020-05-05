@@ -15,14 +15,16 @@ def weather_station_fun():
         # hack: used station id as unique identifier in db, changes on frequency
         # change after reset. this should just be a conf parameter, not dynamic.
         stat = 'station_'+str(reading['id'])
-        if stat == "station_166":
+        if stat == "station_203":
             stat = "station_188" # changed..
+        elif stat == "station_14":
+            stat = "station_141"
 
-        rain = float(reading['rain']) # mm (cumulative? since when?)
+        rain = float(reading['rain_mm']) # mm (cumulative? since when?)
         temp = float(reading['temperature_C'])
         humi = float(reading['humidity'])
-        wind_gust = round(float(reading['gust']) * 0.621371, 2) # mph
-        wind_speed = round(float(reading['speed']) * 0.621371, 2) # mph
+        wind_gust = round(float(reading['wind_max_km_h']) * 0.621371, 2) # mph
+        wind_speed = round(float(reading['wind_avg_km_h']) * 0.621371, 2) # mph
        
         last_station_readings = last[stat] if stat in last else None
 
@@ -104,7 +106,7 @@ def process_reading(line):
 
     print(json.dumps(reading, indent=2))    
     
-    if 'model' in reading and reading['model'] == 'Fine Offset WH1050 weather station':
+    if 'model' in reading and reading['model'] == 'Fineoffset-WH1050':
         weather_station(reading)
 
         
